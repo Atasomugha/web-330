@@ -1,0 +1,77 @@
+/**
+    Title: site.css
+    Author: Professor Krasso
+    Date: 7 January 2023
+    Modified By: Anachebe Asomugha
+    Description: CSS styling for WEB 330 Landing page
+*/  
+
+/* Styling for container div is here*/
+#container {
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+/* Assign class styling */
+.assign-container {
+    padding: 10px;
+}
+
+.assign-content {
+    width: 600px;
+    margin: 3% auto 0;
+}
+
+.assign-results-text {
+    text-align: center;
+    font-size: 28px;
+}
+/* Icon Styling */
+#icon-mode:hover {
+    cursor: pointer;
+}
+
+#icon-text {
+    padding-left: 10px;
+}
+
+.pull-right {
+    float: right;
+}
+
+/* Places header in the center */
+.app-header {
+    text-align: center;
+  }
+
+/* Return link styling is here. */
+.return-home {
+    text-decoration: none;
+    color: #4F3674;
+}
+
+.return-home:visited {
+    color: #3C275A;
+}
+
+.return-home:hover {
+    text-decoration: underline;
+    background-color: #D6A800;
+    color: #4F3674;
+}
+
+/*Styling for forms is listed here */
+.form {
+    display: inline-grid;
+    grid-template-columns: auto;
+}
+
+.form-field {
+    padding: 20px;
+}
+
+/* To be applied to elements that take up full width of the page */
+.full-width {
+    width: 100%;
+}
