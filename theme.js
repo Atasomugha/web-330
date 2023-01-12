@@ -1,3 +1,10 @@
+/** Title: theme.js
+    Author: Professor Krasso
+    Date: 7 January 2023
+    Modified By: Anachebe Asomugha
+    Description: JavaScript functions for WEB 330 Landing page
+ */
+
 /* Light-theme is default setting, unless user's localStorage has differing preference set */
 function setDefaultTheme()
 {
