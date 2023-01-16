@@ -55,15 +55,25 @@ body.dark-theme {
     --text-color: #fafafa;  
 }
 
-a {
+p {
+    text-align: left;
+    color: var(--text-color);
+}
+
+a, a:visited {
     text-decoration: none;
     color: var(--anchor-color);
+
 }
 
 a:hover {
+    text-decoration: underline;
     background-color: var(--anchor-hover-background-color);
     color: var(--anchor-hover-color);
 }
+
+
+
 /* Card styling is listed here */
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
