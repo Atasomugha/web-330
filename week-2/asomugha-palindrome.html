@@ -2,7 +2,7 @@
 <!--
     Title: asomugha-palindrome.html
     Author: Professor Krasso
-    Date: 11 January 2023
+    Date: 15 January 2023
     Modified By: Anachebe Asomugha
     Description: HTML and JavaScript code for WEB 330 Assignment 2.2
                  Palindrome Checker
@@ -131,24 +131,24 @@
         }
 
 
-
+//Retrieves the date
   function getTodaysDate() {
         const today = new Date().toLocaleDateString("en-US");
         return today;
     }
-
+// Gets the length of the user-entered phrase
     function getLength(input) {
         const len = input.length;
         return len;
     }  
-
+//Reverses user-entered phrase
     function reverse(input) {
         const splitInput = input.split("");
         const reverseInput = splitInput.reverse("");
         const reversedPhrase = reverseInput.join("");
         return reversedPhrase;
     }
-
+//Checks if user-entered phrase is the same forward and backward
     function isPalindrome(input) {
         const reversedPhrase = reverse(input);
         if (reversedPhrase === input) {
@@ -160,12 +160,14 @@
     }
 document.getElementById("btnCheckPhrase").onclick = function() { //This is the event listener for the "Check Phrase" button
     
-
+//Assigning values to constants
     const today = getTodaysDate();
     const txtPhrase = document.getElementById("txtPhrase").value;
     const len = getLength(txtPhrase);
     const reversedPhrase = reverse(txtPhrase);
     const assignResults = document.getElementById("assign-results");
+
+//Template Literal that houses the information that populates from the functions    
     const header = `<p id="assign-results-header">
         Date: ${today}<br>
         Original Phrase: ${txtPhrase}<br>
@@ -174,6 +176,7 @@ document.getElementById("btnCheckPhrase").onclick = function() { //This is the e
     
         document.getElementById("assign-results-header").innerHTML = header;
 
+//Prints results of palindrome check        
      if (isPalindrome(txtPhrase.toLowerCase())){
         document.getElementById("palindromeOutput").innerHTML = txtPhrase + ` <b><u>is</u></b>` + " a palindrome!";
      }  
