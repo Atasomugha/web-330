@@ -1,15 +1,17 @@
+/**
+    Title: asomugha-restaurant.css
+    Author: Professor Krasso
+    Date: 22 January 2023
+    Modified By: Anachebe Asomugha
+    Description: CSS styling for WEB 330 Assignment 
+                 3.2 Restaurant App
+*/  
+
+/* Font sizes for menu  */
 #menu-title {
     width: 600px; 
     font-size: 2em;
 }
-
-#menu-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    padding: 10px; 
-}
-
 
 .section-title {
     font-size: 28px;
@@ -18,7 +20,15 @@
 p {
     font-size: 18px;
 }
-    
+ 
+/* Spacing-related styling for top of menu */
 #menu-container {
     margin-top: -50px;
+}
+/* Styling for Restaurant menu */
+#menu-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 10px; 
 }
