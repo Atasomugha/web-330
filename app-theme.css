@@ -1,5 +1,5 @@
 /**
-    Title: theme.css
+    Title: app-theme.css
     Author: Professor Krasso
     Date: 15 January 2023
     Modified By: Anachebe Asomugha
@@ -83,7 +83,7 @@ a:hover {
 
 .card-title {
     text-align: center;
-    font-size: 2em;
+    font-size: 28px;
     color: var(--card-title-color);
     font-weight: 400;
 }
