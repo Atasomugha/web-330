@@ -1,3 +1,13 @@
+/*
+================================================
+* Title: bill.js
+    Author: Professor Krasso
+    Date: 22 January 2023
+    Modified By: Anachebe Asomugha
+    Description: JavaScript module for WEB 330 Assignment 3.2
+================================================    
+ */
+
 import { Appetizer } from "./appetizer.js"; // Importing appetizer class
 import { Beverage } from "./beverage.js"; // Importing beverage class
 import { Dessert } from "./dessert.js"; // Importing dessert class
