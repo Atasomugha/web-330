@@ -7,7 +7,7 @@
     Description: Static properties for WEB 330 Assignment 4.2
 ================================================    
  */
-import { FoodModel } from "/week-4/food-model.js"; // Importing FoodModel Class module
+import { FoodModel } from "./food-model.js"; // Importing FoodModel Class module
 
 export class CalorieConverter extends FoodModel { // Exporting CalorieConverter class
     static data = [ // Static Variable "data"
