@@ -31,7 +31,11 @@ body.light-theme {
     --heading-border-color: #D6A800;
     --input-border-color: #ccc; 
     --text-color: #000;
-   
+    --table-header-background-color: #4F3674;
+    --table-header-color: #fff; 
+    --table-border-color: #ddd; 
+    --table-hover-background-color: #D6A800; 
+    --table-hover-color: #4F3674;
 }
 
 body.dark-theme {
@@ -52,7 +56,12 @@ body.dark-theme {
     --heading-color: #fff;
     --heading-border-color: #424242;
     --input-border-color: #303030;
-    --text-color: #fafafa;  
+    --text-color: #fafafa;
+    --table-header-background-color: #D176E1; 
+    --table-header-color: #fff; 
+    --table-border-color: #303030; 
+    --table-hover-background-color: #7D4787;
+    --table-hover-color: #fff;   
 }
 
 p {
@@ -119,6 +128,8 @@ a:hover {
     color: var(--btn-hover-color);
 }
 
+/* Styling for Headings */
+
 h1 {
     color: var(--heading-color);
     padding: 10px;
@@ -149,4 +160,34 @@ h2, h3, h4 {
     border: 1px solid var(--input-border-color);
     border-radius: 4px;
     box-sizing: border-box;
+}
+
+/* styling fr tables */
+.table {
+    border-collapse: collapse;
+    width: auto;
+    margin-bottom: 30px;
+    text-align: left;
+    color: var(--text-color);
+}
+
+.table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: var(--table-header-background-color);
+    color: var(--table-header-color);
+}
+
+td, th {
+    border: 1px solid var(--table-border-color);
+    padding: 12px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+td:hover, tr:hover {
+    background-color: var(--table-hover-background-color);
+    color: var(--table-hover-color);
+    cursor: pointer;
 }
