@@ -1,4 +1,12 @@
-#foodList {
+/**
+    Title: asomugha-calorie.css
+    Author: Professor Krasso
+    Date: 29 January 2023
+    Modified By: Anachebe Asomugha
+    Description: CSS styling for WEB 330 Assignment 4.2
+*/ 
+
+#foodList {         /* Styling for the list of foods on the calorie app table */  
     float: right;
     letter-spacing: 2px;
     font-size: 12px;
