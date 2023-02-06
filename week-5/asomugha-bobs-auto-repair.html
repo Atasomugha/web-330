@@ -1,0 +1,182 @@
+<!--
+    Title: asomugha-bobs-auto-repair.html
+    Author: Professor Krasso
+    Date: 5 February 2023
+    Modified By: Anachebe Asomugha
+    Description: HTML and JavaScript code for WEB 330 Assignment 5.2
+                 Bob's Auto Repair
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <!--CSS Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="asomugha-bobs-auto-repair.css">        
+    <link rel="stylesheet" type="text/css" href="../app-site.css">
+    <link rel="stylesheet" type="text/css" href="../app-theme.css">
+
+    <!-- Theme functions -->>
+    <script type="application/javascript" src="../theme.js"></script>
+    <!--CartComponent class importation-->
+    <script type="application/javascript" src="cart-component.js"></script>
+
+        <!--Font Family-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">  
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+
+    <title>WEB 330 – Enterprise JavaScript II</title>
+</head>
+<!-- Toggle for Dark and Light Mode-->
+<body class="light-theme">
+    <i onclick="toggleMode(this)" id="icon-mode" class="fa fa-toggle-off pull-right" style="font-size:28px;"><span id="icon-text"></span></i>
+    <br>
+
+    <h1 id="app-name" class="app-header">Welcome to Bob's Automotive Repair Shop!</h1>
+
+    <div class="assign-container">
+<!--This is the card that houses the input field and search button-->
+        <div class="assign-content">
+            <div id="inputCard" class="card"> 
+                <div class="card-title">
+                    Product Listing <br>
+                <cart-component></cart-component> <!--cart-component custom element-->
+                </div>    
+                    <div class="card-content" >
+                        <div class="form">
+                            <div class="form-field">
+                                <label for="txtproductList">Choose a Product:</label>
+                                <select id="productList" name="productList" class="drop-down-menu">
+                                    <option value="Select">--Select--</option>
+                                    <option value="19.99">Oil Change</option>
+                                    <option value="18.44">Filter Replacement</option>
+                                    <option value="9.99">Wiper Fluid Refill</option>
+                                </select>
+                                <br>
+                                <i id="cart-message">To view your shopping cart click on the cart icon</i>
+                            </div>
+                            
+    
+                            <div class="form-field">
+                                <button  id="btnAddProduct" class="btn btn-primary full-width">Add to Cart</button>
+                            </div>
+                        </div>                                                               
+                    </div>
+            </div>                
+        </div>    
+    </div>       
+     
+
+     <!--This anchor returns to the landing page-->   
+     <a class="return-home" id="return" href="../index.html">Return</a> 
+     
+         
+    <div class="assign-container"> 
+     <!-- This is the card that displays the table-->
+        <div class="assign-content">     
+            <div id="resultsCard" class="card">
+                <div class="card-title">Shopping Cart</div>    
+                <div class="card-content" id ="shoppingCart"></div>    
+            </div>            
+        </div>    
+    </div> 
+                                                                                           
+<script> 
+    "use-strict";
+    setSelectedTheme() /* Set the user's preferred theme */
+
+/**
+ * Set the default theme to light if one has not been set in the browsers localStorage
+ */
+    setDefaultTheme();
+
+/**
+ * Function to switch the users selected website theme
+ * @param x (this instance)
+ */
+
+ function toggleMode(x)
+        {
+            let colorTheme = document.body.classList; // get the body's CSS class
+            let iconMode = x.classList; // get the current classes assigned to the triggered button
+
+            /**
+             * If the current body class is set to the light-theme, update the user's preference to the dark-theme in the browsers
+             * local storage.
+             */
+            if (colorTheme.value === "light-theme")
+            {
+                localStorage.clear();
+                localStorage.setItem("mode", "dark-theme");
+                localStorage.setItem("iconMode", "fa-toggle-on");
+                localStorage.setItem("iconText", "Dark Mode");
+            }
+            /**
+             * If the current body class is set to the dark-theme, update the user's preference to the light-theme in the browsers
+             * local storage.
+             */
+            else
+            {
+                localStorage.clear();
+                localStorage.setItem("mode", "light-theme");
+                localStorage.setItem("iconMode", "fa-toggle-off");
+                localStorage.setItem("iconText", "Light Mode");
+            }
+
+            /**
+             * Apply the updated selection to the HTML page elements
+             */
+            colorTheme.value = localStorage.getItem("mode");
+            iconMode.value = `fa ${localStorage.getItem("iconMode")} pull-right`;
+            document.getElementById("icon-text").innerHTML = localStorage.getItem("iconText");
+        };
+
+    
+</script>
+<script type="module">
+    "use-strict";
+    import { Product } from "./product.js";  // Imports Product class 
+    import { ShoppingCart } from "./shopping-cart.js"; // Imports ShoppingCart class 
+
+    let shoppingCart = new ShoppingCart();
+    
+    setCartCount();
+
+    document.getElementById("btnAddProduct").onclick = function() {
+        // variable creation to grab text and its value chosen in the drop down menu
+      const productList = document.getElementById("productList");
+      const product = productList.options[productList.selectedIndex].text;  
+      const productValue = productList.options[productList.selectedIndex].value; 
+      
+      if (product !== "--Select--") { // compares the product variable against the string value
+        shoppingCart.add(new Product(product, productValue));
+        setCartCount(); // Calls the setCartCount() function.
+        alert(product + "was added to your shopping cart!"); // generates alert box 
+        document.getElementById("productList").value = "Select";
+      }
+    };
+    
+    //Generates product table
+    document.getElementById("cartIcon").onclick = function() { 
+            let cartDisplayTable = `<table class="table">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Price</th>`
+            for(let product of shoppingCart) {
+                cartDisplayTable += `<tr> <td>${product.id}</td><td>${product.name}</td>
+                    <td>${product.price}</td></tr>`;
+            }
+            document.getElementById("shoppingCart").innerHTML = cartDisplayTable + `</table>`;               
+    };
+    function setCartCount() { // Create setCartCount() function
+      document.getElementById("cart-count").innerHTML = shoppingCart.count();  
+    };
+       
+   
+</script>
+</body>
+</html>
