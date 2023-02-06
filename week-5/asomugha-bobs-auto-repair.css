@@ -1,10 +1,19 @@
-#cart-message {
+/*
+Title: asomugha-bobs-auto-repair.css
+    Author: Professor Krasso
+    Date: 5 February 2023
+    Modified By: Anachebe Asomugha
+    Description: HTML and JavaScript code for WEB 330 Assignment 5.2
+                 Bob's Auto Repair
+*/
+/* Styling for cart message */
+#cart-message { 
     float: right;
     color: #df546a;
     font-size: 12px;
     letter-spacing: 2px;
 }
 
-i:hover {
+i:hover { 
     cursor: pointer;
 }
