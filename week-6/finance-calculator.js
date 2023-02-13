@@ -9,9 +9,11 @@
  */
 "use-strict";
 
-export class FinanceCalculator {
+export class FinanceCalculator { // Create FinanceCalculator class
     static MONTHS_IN_YEAR = 12;
 
+    /*Create a static function named calculateFutureValue with three parameters 
+    to return Future Value to nearest cent*/
     static calculateFutureValue(monthlyPayment, rate, years) {
         let months = years * this.MONTHS_IN_YEAR;
         let interestRate = 1 + rate/100;
@@ -21,7 +23,7 @@ export class FinanceCalculator {
         return futureValue.toFixed(2);
     }
 
-    static convertToCurrency(field){
+    static convertToCurrency(field){ // Convert calculated value to US dollars
         let currencyFormatter = new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "USD"

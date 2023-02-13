@@ -9,20 +9,20 @@
  */
 "use-strict";
 
-export class FloatMaxField {
+export class FloatMaxField { // Create and export FloatMaxField class
     constructor(name, field, max) {
         this.name = name;
         this.field = field;
         this.max = max;
     }
-    validate() {
+    validate() {  // Checks to see if the field value is less than the max value
         let input = parseFloat(this.field);
         if (input < this.max) {
             return true;
         }
         
     }
-    getMessage() {
+    getMessage() {  // Sends an error message if the field value is greater than the max value
         return `${this.name} must be less than ${this.max}. You entered ${this.field}`;
     }
 }

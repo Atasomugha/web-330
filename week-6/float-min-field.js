@@ -9,7 +9,7 @@
  */
 "use-strict";
 
-export class FloatMinField {     
+export class FloatMinField {     // Create and export FloatMinField class
     constructor(name, field, min) {
         this.name = name;
         this.field = field;

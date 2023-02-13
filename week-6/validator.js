@@ -4,7 +4,7 @@
     Author: Professor Krasso
     Date: 12 February 2023
     Modified By: Anachebe Asomugha
-    Description: JavaScript Validator module for WEB 330 Assignment 6.2
+    Description: Create and loop over Validators class for WEB 330 Assignment 6.2
 ================================================    
  */
 "use-strict";
@@ -41,7 +41,7 @@ export class Validator {
         this.validators.push(new FloatMaxField(this.name, this.field, this.max));
     }
 
-    validate() {
+    validate() { // function to loop over the Validators class
         for(let v of this.validators) {
             if (v.validate() === false) {
                 this.messages.push(v.getMessage());

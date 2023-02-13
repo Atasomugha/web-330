@@ -9,7 +9,7 @@
  */
 "use-strict";
 
-export class FloatField {
+export class FloatField {  // Create and export FloatField class
     constructor(name, field) {
         this.name = name;
         this.field = field;
@@ -17,7 +17,7 @@ export class FloatField {
     validate() {
         return !isNaN(parseFloat(this.field));
     }
-    getMessage() {
+    getMessage() { // Create function to return error message
         return `${this.name} must be a float value. You entered ${this.field}`
     }   
 };
