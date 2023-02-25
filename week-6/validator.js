@@ -1,6 +1,6 @@
 /*
 ================================================
-* Title: validator.js
+*   Title: validator.js
     Author: Professor Krasso
     Date: 12 February 2023
     Modified By: Anachebe Asomugha
